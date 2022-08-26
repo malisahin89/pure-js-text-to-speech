@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!-- https://github.com/malisahin89 -->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Text to Speech</title>
+    </head>
+    <body>
+        <fieldset>
+            <legend>Textbox Text</legend>
+            <input placeholder="Type Here" type="text" id="inputtext">
+            <button onclick="sayText('inputtext')">Say it</button>
+        </fieldset>
+    </body>
+    <script>
+  function sayText(id) {
+    const message = document.getElementById(id).value;
+    var speech = new SpeechSynthesisUtterance(); //https://developer.mozilla.org/en-US/docs/Web/API/SpeechSynthesisUtterance
+    speech.lang = "en-US"; //A string representing a BCP 47 language tag.
+    speech.text = message; //A string representing the text to the synthesized. The maximum length of the text that can be spoken in each utterance is 32,767 characters.
+    speech.volume = 1; //A float that represents the volume value, between 0 (lowest) and 1 (highest.)
+    speech.rate = 1; //A float representing the rate value. It can range between 0.1 (lowest) and 10 (highest), 
+    speech.pitch = 1; //A float representing the pitch value. It can range between 0 (lowest) and 2 (highest),
+
+    window.speechSynthesis.speak(speech);
+  }
+    </script>
+</body>
+</html>
